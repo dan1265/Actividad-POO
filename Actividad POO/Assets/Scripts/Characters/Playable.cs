@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class Playable : CharactersBase
 {
     [SerializeField] protected float mana;
-    public Playable(float life, float mana) : base(life)
+    protected PlayerInput playerInput;
+
+    protected override void Awake()
     {
-        this.mana = mana;
+        base.Awake();
+        playerInput = GetComponent<PlayerInput>();
     }
-
-
-
 }

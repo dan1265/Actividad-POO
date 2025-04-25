@@ -1,26 +1,43 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[System.Serializable]
 public class Priest : Playable
 {
-    public Priest(float life, float mana) : base(life, mana)
+    [SerializeField] private GameObject holylight;
+    [SerializeField] private GameObject holybomb;
+    protected override void Awake()
     {
+        base.Awake();
 
+        abilities.Add(new Holylight(null, 5f));
+        abilities.Add(new Restauration(null, 5f));
+        abilities.Add(new Holybomb(null, 5f));
+
+        playerInput.actions["Ability1"].performed += ctx => Cast1();
+        playerInput.actions["Ability2"].performed += ctx => Cast2();
+        playerInput.actions["Ability3"].performed += ctx => Cast3();
     }
-    private void Awake()
-    {
-        abilities.Add(new Holylight(null, "Holy Light", "Summons a beam of holy light that deals damage to the first enemy it hits.", 5f));
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
 
-        Debug.Log(DisplayAbilities());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    private void Cast1()
+    {
+        GameObject hL = Instantiate(holylight, transform.position, Camera.main.transform.rotation);
+    }
+    private void Cast2()
+    {
+
+    }
+    private void Cast3()
+    {
+
     }
 }

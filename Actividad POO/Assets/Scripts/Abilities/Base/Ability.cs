@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public abstract class Ability
 {
     private Sprite icon;
@@ -7,7 +8,7 @@ public abstract class Ability
     private string abilityDescription;
     private float cD;
 
-    protected Ability(Sprite icon, string abilityName, string abilityDescription, float cD)
+    public Ability(Sprite icon, string abilityName, string abilityDescription, float cD)
     {
         this.icon = icon;
         this.abilityName = abilityName;
@@ -17,8 +18,4 @@ public abstract class Ability
 
     public abstract void Cast();
 
-    public string DisplayInfo()
-    {
-        return $"{abilityName}\n{abilityDescription}";
-    }
 }
