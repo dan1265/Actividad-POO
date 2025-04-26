@@ -1,38 +1,36 @@
 using UnityEngine;
 
-public class Holylightfunction : MonoBehaviour
+public class Holybombfunction : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField]private float speed;
+    [SerializeField] private float force;
     private Vector3 moveDirection;
-    [SerializeField]private float timer;
+    [SerializeField] private float timer;
+
+    [SerializeField] private GameObject zone;
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
-        moveDirection = transform.forward;
+        moveDirection = transform.forward + Vector3.up;
+        rb.AddForce(moveDirection * force);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = moveDirection * speed;
+
 
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
             Destroy(gameObject);
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-        else if (!other.CompareTag("Player")) 
-        {
+            Instantiate(zone, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

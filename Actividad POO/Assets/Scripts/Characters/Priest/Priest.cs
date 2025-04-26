@@ -38,6 +38,6 @@ public class Priest : Playable
     }
     private void Cast3()
     {
-
+        GameObject hB = Instantiate(holybomb, transform.position, Camera.main.transform.rotation);
     }
 }
