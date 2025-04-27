@@ -8,9 +8,13 @@ public class Holylight : Ability
 
     }
 
-    public override void Cast()
+    public override void Cast(GameObject gameObject)
     {
-        
+        if (canCast)
+        {
+            cDtimer = cD;
+            gameObject.GetComponent<Priest>().HolylightAbility();
+        }
     }
 
     void Start()

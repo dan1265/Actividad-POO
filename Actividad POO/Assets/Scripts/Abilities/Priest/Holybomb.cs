@@ -6,9 +6,13 @@ public class Holybomb : Ability
     {
     }
 
-    public override void Cast()
+    public override void Cast(GameObject gameObject)
     {
-        Debug.Log("Holybomb");
+        if (canCast)
+        {
+            cDtimer = cD;
+            gameObject.GetComponent<Priest>().HolybombAbility();
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -6,7 +6,11 @@ public abstract class Ability
     private Sprite icon;
     private string abilityName;
     private string abilityDescription;
-    private float cD;
+    public float cD;
+
+    public float cDtimer;
+    public bool canCast => cDtimer <= 0f;
+
 
     public Ability(Sprite icon, string abilityName, string abilityDescription, float cD)
     {
@@ -16,6 +20,5 @@ public abstract class Ability
         this.cD = cD;
     }
 
-    public abstract void Cast();
-
+    public abstract void Cast(GameObject gameObject);
 }

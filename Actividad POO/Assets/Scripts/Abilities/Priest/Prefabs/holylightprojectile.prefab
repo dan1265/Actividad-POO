@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2046533854746372464}
   - component: {fileID: 7899460325774287518}
   - component: {fileID: 190228023197828652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Holylightprojectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

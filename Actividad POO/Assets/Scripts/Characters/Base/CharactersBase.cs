@@ -8,8 +8,17 @@ public abstract class CharactersBase : MonoBehaviour
 
     public float Life 
     { 
-        get => life; 
-        set => life = value; 
+        get => life;
+        set 
+        {
+            if (value < 0)
+                life = 0;
+            else if (value > 100)
+                life = 100;
+            else
+                life = value;
+        }
+         
     }
 
     protected virtual void Awake()
@@ -17,4 +26,13 @@ public abstract class CharactersBase : MonoBehaviour
 
     }
 
+    public void Getdamage(int damage)
+    {
+        Life -= damage;
+    }
+
+    public void Heal(int heal) 
+    {
+        Life += heal;
+    }
 }

@@ -6,9 +6,13 @@ public class Restauration : Ability
     {
     }
 
-    public override void Cast()
+    public override void Cast(GameObject gameObject)
     {
-        Debug.Log("Restauration");
+        if (canCast)
+        {
+            cDtimer = cD;
+            gameObject.GetComponent<Priest>().RestaurationAbility();
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

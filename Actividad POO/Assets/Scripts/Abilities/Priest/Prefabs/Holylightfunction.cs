@@ -28,7 +28,7 @@ public class Holylightfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Enemy>().Getdamage(20);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 
