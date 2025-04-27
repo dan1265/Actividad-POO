@@ -6,6 +6,8 @@ public class Holylightfunction : MonoBehaviour
     [SerializeField]private float speed;
     private Vector3 moveDirection;
     [SerializeField]private float timer;
+
+    public float damage;
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
@@ -28,7 +30,7 @@ public class Holylightfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(20);
+            other.GetComponent<Enemy>().Getdamage(damage);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 

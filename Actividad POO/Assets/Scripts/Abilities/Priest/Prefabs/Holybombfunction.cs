@@ -8,6 +8,8 @@ public class Holybombfunction : MonoBehaviour
     [SerializeField] private float timer;
 
     [SerializeField] private GameObject zone;
+
+    public float damage;
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
@@ -30,7 +32,8 @@ public class Holybombfunction : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
         {
-            Instantiate(zone, transform.position, Quaternion.identity);
+            GameObject newZone = Instantiate(zone, transform.position, Quaternion.identity);
+            newZone.transform.GetChild(0).GetComponent<Holybombzonefuction>().damage = damage;
             Destroy(gameObject);
         }
     }

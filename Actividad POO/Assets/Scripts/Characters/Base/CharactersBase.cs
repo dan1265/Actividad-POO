@@ -26,12 +26,12 @@ public abstract class CharactersBase : MonoBehaviour
 
     }
 
-    public void Getdamage(int damage)
+    public void Getdamage(float damage)
     {
         Life -= damage;
     }
 
-    public void Heal(int heal) 
+    public void Heal(float heal) 
     {
         Life += heal;
     }

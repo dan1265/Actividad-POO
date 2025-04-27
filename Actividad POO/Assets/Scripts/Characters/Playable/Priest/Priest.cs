@@ -36,18 +36,35 @@ public class Priest : Playable
             }       
         }
 
+        ManaRegen();
     }
 
     public void HolylightAbility()
     {
-        GameObject hL = Instantiate(holylight, transform.position, Camera.main.transform.rotation);
+        GameObject hL = Instantiate(holylight, Camera.main.transform.position, Camera.main.transform.rotation);
+        hL.GetComponent<Holylightfunction>().damage = abilities[0].DamageOrHeal;
     }
     public void RestaurationAbility()
     {
-        Heal(30);
+        Heal(abilities[1].DamageOrHeal);
     }
     public void HolybombAbility()
     {
         GameObject hB = Instantiate(holybomb, transform.position, Camera.main.transform.rotation);
+        hB.GetComponent<Holybombfunction>().damage = abilities[2].DamageOrHeal;
+    }
+
+    private void ManaRegen()
+    {
+        if (Mana < 100)
+        {
+            regeneration -= Time.deltaTime;
+        }
+
+        if (regeneration <= 0)
+        {
+            Mana += 1;
+            regeneration = 5;
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Restauration : Ability
 {
-    public Restauration(Sprite icon, float cD) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD)
+    public Restauration(Sprite icon, float cD) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30f)
     {
     }
 

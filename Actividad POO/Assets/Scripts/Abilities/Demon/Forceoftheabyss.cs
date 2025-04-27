@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Forceoftheabyss : Ability
 {
-    public Forceoftheabyss(Sprite icon, float cD) : base(icon, nameof(Forceoftheabyss), "you consume a cursed soul to absorb its power and regenerate your life", cD)
+    public Forceoftheabyss(Sprite icon, float cD) : base(icon, nameof(Forceoftheabyss), "you consume a cursed soul to absorb its power and regenerate your life", cD, 30f)
     {
     }
 

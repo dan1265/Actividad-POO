@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Darkspear : Ability
 {
-    public Darkspear(Sprite icon, float cD) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD)
+    public Darkspear(Sprite icon, float cD) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 20f)
     {
     }
 

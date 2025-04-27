@@ -4,6 +4,8 @@ public class Holybombzonefuction : MonoBehaviour
 {
     [SerializeField] private float timer;
     [SerializeField]private GameObject parent;
+
+    public float damage;
     void Start()
     {
     }
@@ -16,15 +18,15 @@ public class Holybombzonefuction : MonoBehaviour
         {
             Destroy(parent);
         }
-        float sizeUpdate = Mathf.Lerp(5, 8, timer / 4);
-        parent.transform.localScale = new Vector3(sizeUpdate, 0.1f, sizeUpdate);
+        float sizeUpdate = Mathf.Lerp(6, 7, timer / 4);
+        parent.transform.localScale = new Vector3(sizeUpdate, parent.transform.localScale.y, sizeUpdate);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(1);
+            other.GetComponent<Enemy>().Getdamage(damage);
         }
     }
 }

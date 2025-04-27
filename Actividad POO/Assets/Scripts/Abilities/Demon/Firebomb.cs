@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Firebomb : Ability
 {
-    public Firebomb(Sprite icon, float cD) : base(icon, nameof(Firebomb), "Throws a fire bomb that explodes and incinerates the ground causing damage to all enemies that stand on it.", cD)
+    public Firebomb(Sprite icon, float cD) : base(icon, nameof(Firebomb), "Throws a fire bomb that explodes and incinerates the ground causing damage to all enemies that stand on it.", cD, 0.1f)
     {
     }
 
