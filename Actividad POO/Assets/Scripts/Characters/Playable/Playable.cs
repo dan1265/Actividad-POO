@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class Playable : CharactersBase
 {
     [SerializeField] private float mana;
-    [SerializeField] protected float regeneration;
 
     protected PlayerInput playerInput;
 

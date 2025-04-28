@@ -3,11 +3,24 @@ using UnityEngine;
 public class Holybombzonefuction : MonoBehaviour
 {
     [SerializeField] private float timer;
-    [SerializeField]private GameObject parent;
-
+    [SerializeField] private GameObject parent;
+    private Priest player;
     public float damage;
-    void Start()
+
+    private void OnEnable()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Priest>();
+        Holybomb.Holybombdamage += Damage;
+        player.RefUpdate();
+    }
+    private void OnDisable()
+    {
+        Holybomb.Holybombdamage -= Damage;
+    }
+
+    private void Damage(float inDamage)
+    {
+        damage = inDamage;
     }
 
     // Update is called once per frame

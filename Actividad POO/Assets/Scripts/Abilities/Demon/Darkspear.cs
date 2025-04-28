@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class Darkspear : Ability
 {
-    public Darkspear(Sprite icon, float cD) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 20f)
+    public Darkspear(Sprite icon, float cD) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 20f, 0)
     {
     }
 
     public override void Cast(GameObject gameObject)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void RefUpdate()
     {
         throw new System.NotImplementedException();
     }

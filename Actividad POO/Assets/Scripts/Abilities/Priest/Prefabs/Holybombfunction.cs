@@ -20,8 +20,6 @@ public class Holybombfunction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -32,8 +30,7 @@ public class Holybombfunction : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
         {
-            GameObject newZone = Instantiate(zone, transform.position, Quaternion.identity);
-            newZone.transform.GetChild(0).GetComponent<Holybombzonefuction>().damage = damage;
+            GameObject newZone = Instantiate(zone, transform.position + new Vector3(0,0.5f,0), Quaternion.identity);
             Destroy(gameObject);
         }
     }

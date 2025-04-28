@@ -7,7 +7,24 @@ public class Holylightfunction : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField]private float timer;
 
+    private Priest player;
     public float damage;
+
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Priest>();
+        Holylight.Holylightdamage += Damage;
+        player.RefUpdate();
+    }
+    private void OnDisable()
+    {
+        Holylight.Holylightdamage -= Damage;
+    }
+
+    private void Damage(float inDamage)
+    {
+        damage = inDamage;
+    }
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();

@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class Holybomb : Ability
 {
-    public Holybomb(Sprite icon, float cD) : base(icon, nameof(Holybomb), "throws a flask of holy water that explodes on impact with the ground, inflicts damage to enemies standing on the water", cD, 0.1f)
+    public delegate void HolybombDamage(float damage);
+    public static event HolybombDamage Holybombdamage;
+
+    private Transform shootpoint;
+    private GameObject projectile;
+    public Holybomb(Sprite icon, float cD, Transform shootpoint, GameObject projectile) : base(icon, nameof(Holybomb), "throws a flask of holy water that explodes on impact with the ground, inflicts damage to enemies standing on the water", cD, 0.1f, 10)
     {
+        this.shootpoint = shootpoint;
+        this.projectile = projectile;
     }
 
     public override void Cast(GameObject gameObject)
@@ -11,19 +18,21 @@ public class Holybomb : Ability
         if (canCast)
         {
             cDtimer = cD;
-            gameObject.GetComponent<Priest>().HolybombAbility();
+            HolybombAbility();
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void HolybombAbility()
     {
-        
+        GameObject hB = Object.Instantiate(projectile, shootpoint.position, Camera.main.transform.rotation);
+    }
+    public void Damage()
+    {
+        Holybombdamage?.Invoke(DamageOrHeal);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void RefUpdate()
     {
-        
+        Damage();
     }
 }

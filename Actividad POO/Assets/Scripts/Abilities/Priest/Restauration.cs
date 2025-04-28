@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Restauration : Ability
 {
-    public Restauration(Sprite icon, float cD) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30f)
+    private Priest player;
+    public Restauration(Sprite icon, float cD, Priest player) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30f, 0)
     {
+        this.player = player;
     }
 
     public override void Cast(GameObject gameObject)
@@ -11,19 +13,17 @@ public class Restauration : Ability
         if (canCast)
         {
             cDtimer = cD;
-            gameObject.GetComponent<Priest>().RestaurationAbility();
+            RestaurationAbility();
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void RefUpdate()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RestaurationAbility()
     {
-        
+        player.Heal(DamageOrHeal);
     }
 }
