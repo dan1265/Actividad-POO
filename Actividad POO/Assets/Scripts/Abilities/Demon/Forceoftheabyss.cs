@@ -2,29 +2,32 @@ using UnityEngine;
 
 public class Forceoftheabyss : Ability
 {
-    public Forceoftheabyss(Sprite icon, float cD) : base(icon, nameof(Forceoftheabyss), "you consume a cursed soul to absorb its power and regenerate your life", cD, 30f, 0)
+    private Demon casterRef;
+    public Forceoftheabyss(Sprite icon, float cD, GameObject caster) : base(icon, nameof(Forceoftheabyss), "you consume a cursed soul to absorb its power and regenerate your life", cD, 30f, 5, caster)
     {
+        casterRef = caster.GetComponent<Demon>();
     }
 
     public override void Cast(GameObject gameObject)
     {
-        throw new System.NotImplementedException();
+        if (canCast)
+        {
+            cDtimer = cD;
+            ForceOfTheAbyssAbility();
+        }
     }
 
     public override void RefUpdate()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ForceOfTheAbyssAbility()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (casterRef.Life >= Cost + 1)
+        {
+            caster.GetComponent<Demon>().Heal(DamageOrHeal);
+            casterRef.Life -= Cost;
+        }
     }
 }

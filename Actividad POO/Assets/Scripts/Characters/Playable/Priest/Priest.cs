@@ -14,9 +14,9 @@ public class Priest : Playable
 
         Mana = 100;
 
-        abilities.Add(new Holylight(null, 2.5f, transform, holylight));
-        abilities.Add(new Restauration(null, 10f, this));
-        abilities.Add(new Holybomb(null, 7f, transform, holybomb));
+        abilities.Add(new Holylight(null, 2.5f, gameObject, holylight));
+        abilities.Add(new Restauration(null, 10f, gameObject));
+        abilities.Add(new Holybomb(null, 7f, gameObject, holybomb));
 
         playerInput.actions["Ability1"].performed += ctx => abilities[0].Cast(gameObject);
         playerInput.actions["Ability2"].performed += ctx => abilities[1].Cast(gameObject);

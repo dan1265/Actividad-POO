@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2773171616238839611}
   - component: {fileID: 5640087260678198131}
   - component: {fileID: 604040882042905725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Holybombprojectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,6 +125,7 @@ MonoBehaviour:
   force: 300
   timer: 10
   zone: {fileID: 8120091198564016062, guid: fdce32e93b1c57a489fcc6f11c249e46, type: 3}
+  damage: 0
 --- !u!54 &604040882042905725
 Rigidbody:
   m_ObjectHideFlags: 0

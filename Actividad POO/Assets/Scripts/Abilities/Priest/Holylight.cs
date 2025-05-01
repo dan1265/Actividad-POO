@@ -8,9 +8,12 @@ public class Holylight : Ability
     public static event HolylightDamage Holylightdamage;
 
     private GameObject projectile;
-    public Holylight(Sprite icon, float cD, Transform shootpoint, GameObject projectile) : base(icon, nameof(Holylight), "Summons a beam of holy light that deals damage to the first enemy it hits.", cD, 20f, 0)
+    private Priest casterRef;
+
+    public Holylight(Sprite icon, float cD, GameObject caster, GameObject projectile) : base(icon, nameof(Holylight), "Summons a beam of holy light that deals damage to the first enemy it hits.", cD, 20f, 10, caster)
     {
         this.projectile = projectile;
+        casterRef = caster.GetComponent<Priest>();
     }
 
     public override void Cast(GameObject gameObject)
@@ -24,7 +27,12 @@ public class Holylight : Ability
 
     public void HolylightAbility()
     {
-        GameObject hL = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
+        if(casterRef.Mana >= Cost)
+        {
+            GameObject hL = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
+            casterRef.Mana -= Cost;
+        }
+
     }
 
     public void Damage()

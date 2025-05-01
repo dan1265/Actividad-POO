@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Restauration : Ability
 {
-    private Priest player;
-    public Restauration(Sprite icon, float cD, Priest player) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30f, 0)
+    private Priest casterRef;
+    public Restauration(Sprite icon, float cD, GameObject caster) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30f, 30, caster)
     {
-        this.player = player;
+        casterRef = caster.GetComponent<Priest>();
     }
 
     public override void Cast(GameObject gameObject)
@@ -24,6 +24,10 @@ public class Restauration : Ability
 
     public void RestaurationAbility()
     {
-        player.Heal(DamageOrHeal);
+        if (casterRef.Mana >= Cost)
+        {
+            caster.GetComponent<Priest>().Heal(DamageOrHeal);
+            casterRef.Mana -= Cost;
+        }
     }
 }
