@@ -103,11 +103,11 @@ GameObject:
   - component: {fileID: 8254520925911518991}
   - component: {fileID: 3751617440382824638}
   - component: {fileID: 9089735489425688312}
-  - component: {fileID: 1314126868397051349}
-  - component: {fileID: 5420842020241727873}
-  - component: {fileID: 5761412593521438452}
-  - component: {fileID: 2302025187021135136}
   - component: {fileID: 7695013905818916035}
+  - component: {fileID: -7973560126891068213}
+  - component: {fileID: -4194593774120127867}
+  - component: {fileID: -4380854089620643877}
+  - component: {fileID: -7164555632720376000}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Player
@@ -184,57 +184,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1314126868397051349
-CapsuleCollider:
+--- !u!114 &7695013905818916035
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4709014068481734707}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5420842020241727873
-Rigidbody:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbef0e637b537194782a4275c3690e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  mana: 100
+  regenerationTimer: 0
+  regenerationSpeed: 5
+  holylight: {fileID: 2805082445174412986, guid: 9380732773f24f648ab3e4c90429da66, type: 3}
+  holybomb: {fileID: 4677810072557370413, guid: f51305eb5dc29b044b5e3e71b320d045, type: 3}
+--- !u!114 &-7973560126891068213
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4709014068481734707}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &5761412593521438452
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099f00dcfa4265c46a17a1fe4c0baaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
+  mouseSensitivity: 15
+--- !u!114 &-4194593774120127867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,35 +246,53 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2302025187021135136
-MonoBehaviour:
+--- !u!54 &-4380854089620643877
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4709014068481734707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099f00dcfa4265c46a17a1fe4c0baaf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500
-  mouseSensitivity: 15
---- !u!114 &7695013905818916035
-MonoBehaviour:
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &-7164555632720376000
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4709014068481734707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbef0e637b537194782a4275c3690e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 100
-  mana: 100
-  regenerationTimer: 0
-  regenerationSpeed: 5
-  holylight: {fileID: 2805082445174412986, guid: 9380732773f24f648ab3e4c90429da66, type: 3}
-  holybomb: {fileID: 4677810072557370413, guid: f51305eb5dc29b044b5e3e71b320d045, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

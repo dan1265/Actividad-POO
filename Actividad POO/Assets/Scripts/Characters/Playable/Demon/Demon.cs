@@ -16,9 +16,10 @@ public class Demon : Playable
         abilities.Add(new Firebomb(null, 5f, gameObject, firebomb));
 
         playerInput.actions["Ability1"].performed += ctx => abilities[0].Cast(gameObject);
-        playerInput.actions["Ability2"].performed += ctx => abilities[1].Cast(gameObject);
+        playerInput.actions["Ability2"].performed += ctx => abilities[1].Cast(gameObject);  
         playerInput.actions["Ability3"].performed += ctx => abilities[2].Cast(gameObject);
     }
+
 
     void Update()
     {
