@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        HandleLook();
+        Look();
         Move();
     }
 
@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
         rb.linearVelocity = moveDirection * speed * Time.deltaTime;
     }
 
-    private void HandleLook()
+    private void Look()
     {
         Vector2 mouse = lookInput * mouseSensitivity * Time.deltaTime;
 
