@@ -12,9 +12,7 @@ public class Darkspearfunction : MonoBehaviour
 
     private void OnEnable()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Demon>();
         Darkspear.Darkspeardamage += Damage;
-        player.RefUpdate();
     }
     private void OnDisable()
     {

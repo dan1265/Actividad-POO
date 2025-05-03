@@ -16,7 +16,7 @@ public class Holylight : Ability
         casterRef = caster.GetComponent<Priest>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -37,7 +37,7 @@ public class Holylight : Ability
 
     public void Damage()
     {
-        Holylightdamage?.Invoke(DamageOrHeal);
+        Holylightdamage?.Invoke(Value);
     }
 
     public override void RefUpdate()

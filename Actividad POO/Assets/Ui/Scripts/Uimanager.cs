@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Uimanager : MonoBehaviour
 {
+    public List<GameObject> characters;
     private void Awake()
     {
 
@@ -13,6 +14,9 @@ public class Uimanager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    private void Update()
+    {
 
     }
 }

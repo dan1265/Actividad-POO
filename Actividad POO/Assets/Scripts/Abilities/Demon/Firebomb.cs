@@ -13,7 +13,7 @@ public class Firebomb : Ability
         casterRef = caster.GetComponent<Demon>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -32,7 +32,7 @@ public class Firebomb : Ability
     }
     public void Damage()
     {
-        Firebombdamage?.Invoke(DamageOrHeal);
+        Firebombdamage?.Invoke(Value);
     }
 
     public override void RefUpdate()

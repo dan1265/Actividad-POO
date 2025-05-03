@@ -14,7 +14,7 @@ public class Darkspear : Ability
         casterRef = caster.GetComponent<Demon>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -35,7 +35,7 @@ public class Darkspear : Ability
 
     public void Damage()
     {
-        Darkspeardamage?.Invoke(DamageOrHeal);
+        Darkspeardamage?.Invoke(Value);
     }
 
     public override void RefUpdate()

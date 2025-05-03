@@ -12,9 +12,7 @@ public class Holylightfunction : MonoBehaviour
 
     private void OnEnable()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Priest>();
         Holylight.Holylightdamage += Damage;
-        player.RefUpdate();
     }
     private void OnDisable()
     {

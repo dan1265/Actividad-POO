@@ -11,7 +11,7 @@ public class Firebombzonefuction : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Demon>();
         Firebomb.Firebombdamage += Damage;
-        player.RefUpdate();
+        damage = player.abilities[2].Value;
     }
     private void OnDisable()
     {

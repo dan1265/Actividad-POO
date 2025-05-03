@@ -3,8 +3,23 @@ using UnityEngine.InputSystem;
 
 public class Priest : Playable
 {
+    [SerializeField] private float mana;
     [SerializeField] protected float regenerationTimer;
     [SerializeField] protected float regenerationSpeed;
+
+    public float Mana
+    {
+        get => mana;
+        set
+        {
+            if (value < 0)
+                mana = 0;
+            else if (value > 100)
+                mana = 100;
+            else
+                mana = value;
+        }
+    }
 
     [SerializeField] private GameObject holylight;
     [SerializeField] private GameObject holybomb;
@@ -17,10 +32,6 @@ public class Priest : Playable
         abilities.Add(new Holylight(null, 2.5f, gameObject, holylight));
         abilities.Add(new Restauration(null, 10f, gameObject));
         abilities.Add(new Holybomb(null, 7f, gameObject, holybomb));
-
-        playerInput.actions["Ability1"].performed += ctx => abilities[0].Cast(gameObject);
-        playerInput.actions["Ability2"].performed += ctx => abilities[1].Cast(gameObject);
-        playerInput.actions["Ability3"].performed += ctx => abilities[2].Cast(gameObject);
     }
 
     // Update is called once per frame
@@ -28,25 +39,7 @@ public class Priest : Playable
     {
         ManaRegen();
         CDUpdate();
-    }
-
-    private void CDUpdate()
-    {
-        foreach (var ability in abilities)
-        {
-
-            if (ability.cDtimer >= 0)
-            {
-                ability.cDtimer -= Time.deltaTime;
-            }
-        }
-    }
-    public void RefUpdate()
-    {
-        foreach (var ability in abilities)
-        {
-            ability.RefUpdate();
-        }
+        CastSelector();
     }
 
     protected void ManaRegen()

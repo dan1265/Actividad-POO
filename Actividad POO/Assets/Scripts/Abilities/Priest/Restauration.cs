@@ -8,7 +8,7 @@ public class Restauration : Ability
         casterRef = caster.GetComponent<Priest>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -26,7 +26,7 @@ public class Restauration : Ability
     {
         if (casterRef.Mana >= Cost)
         {
-            caster.GetComponent<Priest>().Heal(DamageOrHeal);
+            caster.GetComponent<Priest>().Heal(Value);
             casterRef.Mana -= Cost;
         }
     }

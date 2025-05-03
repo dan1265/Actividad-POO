@@ -8,7 +8,7 @@ public class Forceoftheabyss : Ability
         casterRef = caster.GetComponent<Demon>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -26,7 +26,7 @@ public class Forceoftheabyss : Ability
     {
         if (casterRef.Life >= Cost + 1)
         {
-            caster.GetComponent<Demon>().Heal(DamageOrHeal);
+            caster.GetComponent<Demon>().Heal(Value);
             casterRef.Life -= Cost;
         }
     }

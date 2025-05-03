@@ -13,7 +13,7 @@ public class Holybomb : Ability
         casterRef = caster.GetComponent<Priest>();
     }
 
-    public override void Cast(GameObject gameObject)
+    public override void Cast()
     {
         if (canCast)
         {
@@ -32,7 +32,7 @@ public class Holybomb : Ability
     }
     public void Damage()
     {
-        Holybombdamage?.Invoke(DamageOrHeal);
+        Holybombdamage?.Invoke(Value);
     }
 
     public override void RefUpdate()

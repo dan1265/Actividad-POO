@@ -11,7 +11,7 @@ public class Holybombzonefuction : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Priest>();
         Holybomb.Holybombdamage += Damage;
-        player.RefUpdate();
+        damage = player.abilities[2].Value;
     }
     private void OnDisable()
     {
