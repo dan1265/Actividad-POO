@@ -197,11 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  mana: 0
   regenerationTimer: 0
   regenerationSpeed: 10
   darkspear: {fileID: 2805082445174412986, guid: 5ec79705d76a1f9489b70034298eeeed, type: 3}
   firebomb: {fileID: 4677810072557370413, guid: 9197f9f968879624fbdbc98c6dda63e6, type: 3}
+  abilitiesData:
+  - {fileID: 11400000, guid: 265c6f0304b42a645b6619b86627c648, type: 2}
+  - {fileID: 11400000, guid: 6c3f5de6cdda7a045ba4945aebc76dc5, type: 2}
+  - {fileID: 11400000, guid: bd6c081d31d90004e9ac60f4f53d06a2, type: 2}
 --- !u!114 &4843357683715087381
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,22 @@ public class Playable : CharactersBase
     [SerializeField] public List<Ability> abilities = new List<Ability>();
     protected PlayerInput playerInput;
 
+    [SerializeField] private float mana;
+
+    public float Mana
+    {
+        get => mana;
+        set
+        {
+            if (value < 0)
+                mana = 0;
+            else if (value > 100)
+                mana = 100;
+            else
+                mana = value;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -33,7 +49,6 @@ public class Playable : CharactersBase
     private void Cast(int ability)
     {
         abilities[ability - 1].Cast();
-        abilities[ability - 1].RefUpdate();
     }
 
     protected void CDUpdate()

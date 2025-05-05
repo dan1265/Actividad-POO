@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Demon : Playable
@@ -7,13 +8,15 @@ public class Demon : Playable
 
     [SerializeField] private GameObject darkspear;
     [SerializeField] private GameObject firebomb;
+
+    [SerializeField]private List<Abilityscriptable> abilitiesData;
     protected override void Awake()
     {
         base.Awake();
 
-        abilities.Add(new Darkspear(null, 5f, gameObject, darkspear));
-        abilities.Add(new Forceoftheabyss(null, 5f, gameObject));
-        abilities.Add(new Firebomb(null, 5f, gameObject, firebomb));
+        abilities.Add(new Darkspear(null, 2.5f, gameObject, darkspear, abilitiesData[0]));
+        abilities.Add(new Forceoftheabyss(null, 10f, gameObject, abilitiesData[1]));
+        abilities.Add(new Firebomb(null, 7f, gameObject, firebomb, abilitiesData[2]));
     }
 
 

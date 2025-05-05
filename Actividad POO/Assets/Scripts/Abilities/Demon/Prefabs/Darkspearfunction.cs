@@ -7,22 +7,8 @@ public class Darkspearfunction : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField]private float timer;
 
-    private Demon player;
-    public float damage;
+    [SerializeField] private Abilityscriptable abilityData;
 
-    private void OnEnable()
-    {
-        Darkspear.Darkspeardamage += Damage;
-    }
-    private void OnDisable()
-    {
-        Darkspear.Darkspeardamage += Damage;
-    }
-
-    private void Damage(float inDamage)
-    {
-        damage = inDamage;
-    }
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
@@ -45,7 +31,7 @@ public class Darkspearfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(damage);
+            other.GetComponent<Enemy>().Getdamage(abilityData.abilityValue);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 

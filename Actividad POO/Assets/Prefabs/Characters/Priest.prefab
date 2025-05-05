@@ -200,6 +200,10 @@ MonoBehaviour:
   mana: 100
   regenerationTimer: 0
   regenerationSpeed: 5
+  abilitiesData:
+  - {fileID: 11400000, guid: 0a9d4774aa41d9644a86deb578077346, type: 2}
+  - {fileID: 11400000, guid: 1d69bcce1e7c8864c940e4f960564ade, type: 2}
+  - {fileID: 11400000, guid: bafb431b061909f4f9e578473ef5791b, type: 2}
   holylight: {fileID: 2805082445174412986, guid: 9380732773f24f648ab3e4c90429da66, type: 3}
   holybomb: {fileID: 4677810072557370413, guid: f51305eb5dc29b044b5e3e71b320d045, type: 3}
 --- !u!114 &-7973560126891068213

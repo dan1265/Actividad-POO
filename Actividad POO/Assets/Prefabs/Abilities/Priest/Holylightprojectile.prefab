@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   timer: 10
+  abilityData: {fileID: 11400000, guid: 0a9d4774aa41d9644a86deb578077346, type: 2}
 --- !u!54 &190228023197828652
 Rigidbody:
   m_ObjectHideFlags: 0

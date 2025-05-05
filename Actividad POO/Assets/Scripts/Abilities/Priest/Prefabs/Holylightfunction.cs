@@ -7,22 +7,7 @@ public class Holylightfunction : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField]private float timer;
 
-    private Priest player;
-    public float damage;
-
-    private void OnEnable()
-    {
-        Holylight.Holylightdamage += Damage;
-    }
-    private void OnDisable()
-    {
-        Holylight.Holylightdamage -= Damage;
-    }
-
-    private void Damage(float inDamage)
-    {
-        damage = inDamage;
-    }
+    [SerializeField] private Abilityscriptable abilityData;
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
@@ -45,7 +30,7 @@ public class Holylightfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(damage);
+            other.GetComponent<Enemy>().Getdamage(abilityData.abilityValue);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 

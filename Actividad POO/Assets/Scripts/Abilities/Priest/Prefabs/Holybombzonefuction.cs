@@ -4,24 +4,7 @@ public class Holybombzonefuction : MonoBehaviour
 {
     [SerializeField] private float timer;
     [SerializeField] private GameObject parent;
-    private Priest player;
-    public float damage;
-
-    private void OnEnable()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Priest>();
-        Holybomb.Holybombdamage += Damage;
-        damage = player.abilities[2].Value;
-    }
-    private void OnDisable()
-    {
-        Holybomb.Holybombdamage -= Damage;
-    }
-
-    private void Damage(float inDamage)
-    {
-        damage = inDamage;
-    }
+    [SerializeField] private Abilityscriptable abilityData;
 
     // Update is called once per frame
     void Update()
@@ -39,7 +22,7 @@ public class Holybombzonefuction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(damage);
+            other.GetComponent<Enemy>().Getdamage(abilityData.abilityValue);
         }
     }
 }

@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class Darkspear : Ability
 {
-
-    public delegate void DarkspearDamage(float damage);
-    public static event DarkspearDamage Darkspeardamage;
-
     private Demon casterRef;
     private GameObject projectile;
-    public Darkspear(Sprite icon, float cD, GameObject caster, GameObject projectile) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 20f, 10, caster)
+    public Darkspear(Sprite icon, float cD, GameObject caster, GameObject projectile, Abilityscriptable abilityData) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 10, caster, abilityData)
     {
         this.projectile = projectile;
         casterRef = caster.GetComponent<Demon>();
@@ -31,15 +27,5 @@ public class Darkspear : Ability
             casterRef.Life -= Cost;
         }
 
-    }
-
-    public void Damage()
-    {
-        Darkspeardamage?.Invoke(Value);
-    }
-
-    public override void RefUpdate()
-    {
-        Damage();
     }
 }

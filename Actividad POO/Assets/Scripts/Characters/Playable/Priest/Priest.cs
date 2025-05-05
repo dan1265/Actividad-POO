@@ -1,25 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Priest : Playable
 {
-    [SerializeField] private float mana;
     [SerializeField] protected float regenerationTimer;
     [SerializeField] protected float regenerationSpeed;
 
-    public float Mana
-    {
-        get => mana;
-        set
-        {
-            if (value < 0)
-                mana = 0;
-            else if (value > 100)
-                mana = 100;
-            else
-                mana = value;
-        }
-    }
+    [SerializeField] private List<Abilityscriptable> abilitiesData;
+
 
     [SerializeField] private GameObject holylight;
     [SerializeField] private GameObject holybomb;
@@ -29,9 +18,9 @@ public class Priest : Playable
 
         Mana = 100;
 
-        abilities.Add(new Holylight(null, 2.5f, gameObject, holylight));
-        abilities.Add(new Restauration(null, 10f, gameObject));
-        abilities.Add(new Holybomb(null, 7f, gameObject, holybomb));
+        abilities.Add(new Holylight(null, 2.5f, gameObject, holylight, abilitiesData[0]));
+        abilities.Add(new Restauration(null, 10f, gameObject, abilitiesData[1]));
+        abilities.Add(new Holybomb(null, 7f, gameObject, holybomb, abilitiesData[2]));
     }
 
     // Update is called once per frame

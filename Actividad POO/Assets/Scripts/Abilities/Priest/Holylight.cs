@@ -4,13 +4,10 @@ using static Holybomb;
 [System.Serializable]
 public class Holylight : Ability
 {
-    public delegate void HolylightDamage(float damage);
-    public static event HolylightDamage Holylightdamage;
-
     private GameObject projectile;
     private Priest casterRef;
 
-    public Holylight(Sprite icon, float cD, GameObject caster, GameObject projectile) : base(icon, nameof(Holylight), "Summons a beam of holy light that deals damage to the first enemy it hits.", cD, 20f, 10, caster)
+    public Holylight(Sprite icon, float cD, GameObject caster, GameObject projectile, Abilityscriptable abilityData) : base(icon, nameof(Holylight), "Summons a beam of holy light that deals damage to the first enemy it hits.", cD, 10, caster, abilityData)
     {
         this.projectile = projectile;
         casterRef = caster.GetComponent<Priest>();
@@ -33,15 +30,5 @@ public class Holylight : Ability
             casterRef.Mana -= Cost;
         }
 
-    }
-
-    public void Damage()
-    {
-        Holylightdamage?.Invoke(Value);
-    }
-
-    public override void RefUpdate()
-    {
-        Damage();
     }
 }
