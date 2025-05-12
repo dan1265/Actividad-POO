@@ -3,35 +3,9 @@ using UnityEngine;
 
 public abstract class CharactersBase : MonoBehaviour
 {
-    [SerializeField] protected Lifesystem lifeSystem = new Lifesystem(100,0,100);
-
-    [SerializeField] private float life;
-
-    public float Life
-    {
-        get => life;
-        set
-        {
-            if (value < 0)
-                life = 0;
-            else if (value > 100)
-                life = 100;
-            else
-                life = value;
-        }
-
-    }
+    public Lifesystem lifesystem;
     protected virtual void Awake()
     {
-
-    }
-    public void Getdamage(float damage)
-    {
-        Life -= damage;
-    }
-
-    public void Heal(float heal)
-    {
-        Life += heal;
+        lifesystem = new Lifesystem(100, 0, 100);
     }
 }

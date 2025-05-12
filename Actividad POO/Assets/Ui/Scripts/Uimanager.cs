@@ -30,7 +30,7 @@ public class Uimanager : MonoBehaviour
     {
         foreach(TextMeshProUGUI text in cds)
         {
-            if(text.text == "0")
+            if(text.text == "0,0")
             {
                 text.gameObject.SetActive(false);
             }
@@ -42,24 +42,24 @@ public class Uimanager : MonoBehaviour
 
         if (player.GetComponent<Priest>())
         {
-            Life.value = player.GetComponent<Priest>().Life/100;
+            Life.value = player.GetComponent<Priest>().lifesystem.CurrentLife /100;
             Mana.value = player.GetComponent<Priest>().Mana/100;
 
             for (int i = 0; i < cds.Count; i++)
             {
                 names[i].text = player.GetComponent<Priest>().abilities[i].abilityName;
-                cds[i].text = ((int)player.GetComponent<Priest>().abilities[i].cDtimer).ToString();
+                cds[i].text = player.GetComponent<Priest>().abilities[i].cDtimer.ToString("F1");
             }
         }
         else if (player.GetComponent<Demon>())
         {
-            Life.value = player.GetComponent<Demon>().Life/100;
+            Life.value = player.GetComponent<Demon>().lifesystem.CurrentLife /100;
             Mana.gameObject.SetActive(false);
 
             for (int i = 0; i < cds.Count; i++)
             {
                 names[i].text = player.GetComponent<Demon>().abilities[i].abilityName;
-                cds[i].text = ((int)player.GetComponent<Demon>().abilities[i].cDtimer).ToString();
+                cds[i].text = player.GetComponent<Demon>().abilities[i].cDtimer.ToString("F1");
             }
         }
         else

@@ -14,17 +14,17 @@ public class Darkspear : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             DarkSpearAbility();
         }
     }
 
     public void DarkSpearAbility()
     {
-        if (casterRef.Life >= Cost + 1)
+        if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
+            cDtimer = cD;
             GameObject dS = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
-            casterRef.Life -= Cost;
+            casterRef.lifesystem.CurrentLife -= Cost;
         }
 
     }

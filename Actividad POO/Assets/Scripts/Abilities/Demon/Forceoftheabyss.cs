@@ -12,16 +12,17 @@ public class Forceoftheabyss : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             ForceOfTheAbyssAbility();
         }
     }
     public void ForceOfTheAbyssAbility()
     {
-        if (casterRef.Life >= Cost + 1)
+        if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
-            caster.GetComponent<Demon>().Heal(abilityData.abilityValue);
-            casterRef.Life -= Cost;
+            cDtimer = cD;
+            casterRef.lifesystem.CurrentLife -= Cost;
+            caster.GetComponent<Demon>().lifesystem.Heal(abilityData.abilityValue);
+
         }
     }
 }

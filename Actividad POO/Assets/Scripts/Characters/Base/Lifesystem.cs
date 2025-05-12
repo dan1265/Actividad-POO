@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Lifesystem : IDamageable
+public class Lifesystem
 {
     private float maxLife;
     private float minLife;
@@ -15,7 +15,12 @@ public class Lifesystem : IDamageable
         CurrentLife = currentLife;
     }
 
-    public void IDamageable(float damageAmount)
+    public void Heal(float healAmount)
+    {
+        CurrentLife += healAmount;
+    }
+
+    public void TakeDamage(float damageAmount)
     {
         CurrentLife -= damageAmount;
     }

@@ -31,7 +31,7 @@ public class Darkspearfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(abilityData.abilityValue);
+            other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 

@@ -14,17 +14,17 @@ public class Firebomb : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             FireBombAbility();
         }
     }
 
     private void FireBombAbility()
     {
-        if (casterRef.Life >= Cost + 1)
+        if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
+            cDtimer = cD;
             GameObject fB = Object.Instantiate(projectile, caster.transform.position, Camera.main.transform.rotation);
-            casterRef.Life -= Cost;
+            casterRef.lifesystem.CurrentLife -= Cost;
         }
     }
 }

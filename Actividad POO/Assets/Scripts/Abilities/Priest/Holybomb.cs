@@ -14,7 +14,6 @@ public class Holybomb : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             HolybombAbility();
         }
     }
@@ -23,6 +22,7 @@ public class Holybomb : Ability
     {
         if (casterRef.Mana >= Cost)
         {
+            cDtimer = cD;
             GameObject hB = Object.Instantiate(projectile, caster.transform.position, Camera.main.transform.rotation);
             casterRef.Mana -= Cost;
         }

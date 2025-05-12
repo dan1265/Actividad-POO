@@ -12,7 +12,6 @@ public class Restauration : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             RestaurationAbility();
         }
     }
@@ -20,7 +19,8 @@ public class Restauration : Ability
     {
         if (casterRef.Mana >= Cost)
         {
-            caster.GetComponent<Priest>().Heal(abilityData.abilityValue);
+            cDtimer = cD;
+            caster.GetComponent<Priest>().lifesystem.Heal(abilityData.abilityValue);
             casterRef.Mana -= Cost;
         }
     }

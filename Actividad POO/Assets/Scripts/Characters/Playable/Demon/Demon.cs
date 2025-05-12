@@ -29,18 +29,18 @@ public class Demon : Playable
 
     protected void LifeRegen()
     {
-        if (Life < 100)
+        if (lifesystem.CurrentLife < 100)
         {
             regenerationTimer -= Time.deltaTime;
         }
 
         if (regenerationTimer <= 0)
         {
-            Life += 1;
+            lifesystem.CurrentLife += 1;
             regenerationTimer = regenerationSpeed;
         }
 
-        if (Life == 100)
+        if (lifesystem.CurrentLife == 100)
         {
             regenerationTimer = regenerationSpeed;
         }

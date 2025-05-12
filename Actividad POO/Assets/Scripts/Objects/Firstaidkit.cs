@@ -12,14 +12,25 @@ public class Firstaidkit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(0, 1 + (Mathf.Sin(Time.time * frequency) * amplitude), 0);
+        transform.position = new Vector3(transform.position.x, 1 + (Mathf.Sin(Time.time * frequency) * amplitude), transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+
+            if (other.GetComponent<Priest>())
+            {
+                other.GetComponent<Priest>().lifesystem.Heal(30f);
+                other.GetComponent<Priest>().Mana += 30;
+            }
+            if (other.GetComponent<Demon>())
+            {
+                other.GetComponent<Demon>().lifesystem.Heal(30f);
+            }
             Destroy(gameObject);
         }
+
     }
 }

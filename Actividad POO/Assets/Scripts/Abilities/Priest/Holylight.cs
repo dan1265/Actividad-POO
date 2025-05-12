@@ -17,7 +17,6 @@ public class Holylight : Ability
     {
         if (canCast)
         {
-            cDtimer = cD;
             HolylightAbility();
         }
     }
@@ -26,6 +25,7 @@ public class Holylight : Ability
     {
         if(casterRef.Mana >= Cost)
         {
+            cDtimer = cD;
             GameObject hL = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
             casterRef.Mana -= Cost;
         }

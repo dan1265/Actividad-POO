@@ -22,7 +22,7 @@ public class Holybombzonefuction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Getdamage(abilityData.abilityValue);
+            other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
         }
     }
 }
