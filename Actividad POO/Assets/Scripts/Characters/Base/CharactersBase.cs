@@ -3,12 +3,14 @@ using UnityEngine;
 
 public abstract class CharactersBase : MonoBehaviour
 {
+    [SerializeField] protected Lifesystem lifeSystem = new Lifesystem(100,0,100);
+
     [SerializeField] private float life;
 
-    public float Life 
-    { 
+    public float Life
+    {
         get => life;
-        set 
+        set
         {
             if (value < 0)
                 life = 0;
@@ -17,20 +19,18 @@ public abstract class CharactersBase : MonoBehaviour
             else
                 life = value;
         }
-         
-    }
 
+    }
     protected virtual void Awake()
     {
 
     }
-
     public void Getdamage(float damage)
     {
         Life -= damage;
     }
 
-    public void Heal(float heal) 
+    public void Heal(float heal)
     {
         Life += heal;
     }

@@ -15,4 +15,11 @@ public class Firstaidkit : MonoBehaviour
         transform.position = new Vector3(0, 1 + (Mathf.Sin(Time.time * frequency) * amplitude), 0);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
