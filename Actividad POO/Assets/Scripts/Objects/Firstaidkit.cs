@@ -23,7 +23,7 @@ public class Firstaidkit : MonoBehaviour
             if (other.GetComponent<Priest>())
             {
                 other.GetComponent<Priest>().lifesystem.Heal(30f);
-                other.GetComponent<Priest>().Mana += 30;
+                other.GetComponent<Priest>().mana.CurrentMana += 30;
             }
             if (other.GetComponent<Demon>())
             {

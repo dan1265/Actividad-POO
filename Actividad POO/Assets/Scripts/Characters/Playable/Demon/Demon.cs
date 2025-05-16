@@ -9,14 +9,14 @@ public class Demon : Playable
     [SerializeField] private GameObject darkspear;
     [SerializeField] private GameObject firebomb;
 
-    [SerializeField]private List<Abilityscriptable> abilitiesData;
+    [SerializeField] public List<Ability> abilitiesData;
     protected override void Awake()
     {
         base.Awake();
 
-        abilities.Add(new Darkspear(null, 2.5f, gameObject, darkspear, abilitiesData[0]));
-        abilities.Add(new Forceoftheabyss(null, 10f, gameObject, abilitiesData[1]));
-        abilities.Add(new Firebomb(null, 7f, gameObject, firebomb, abilitiesData[2]));
+        abilities.Add(new Darkspear(2.5f, gameObject, darkspear));
+        abilities.Add(new Forceoftheabyss(10f, gameObject, abilitiesData[1]));
+        abilities.Add(new Firebomb(7f, gameObject, firebomb));
     }
 
 
@@ -25,6 +25,7 @@ public class Demon : Playable
         LifeRegen();
         CDUpdate();
         CastSelector();
+        Dead();
     }
 
     protected void LifeRegen()

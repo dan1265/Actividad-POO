@@ -43,11 +43,11 @@ public class Uimanager : MonoBehaviour
         if (player.GetComponent<Priest>())
         {
             Life.value = player.GetComponent<Priest>().lifesystem.CurrentLife /100;
-            Mana.value = player.GetComponent<Priest>().Mana/100;
+            Mana.value = player.GetComponent<Priest>().mana.CurrentMana /100;
 
             for (int i = 0; i < cds.Count; i++)
             {
-                names[i].text = player.GetComponent<Priest>().abilities[i].abilityName;
+                names[i].text = player.GetComponent<Priest>().abilitiesData[i].abilityName;
                 cds[i].text = player.GetComponent<Priest>().abilities[i].cDtimer.ToString("F1");
             }
         }
@@ -58,7 +58,7 @@ public class Uimanager : MonoBehaviour
 
             for (int i = 0; i < cds.Count; i++)
             {
-                names[i].text = player.GetComponent<Demon>().abilities[i].abilityName;
+                names[i].text = player.GetComponent<Demon>().abilitiesData[i].abilityName;
                 cds[i].text = player.GetComponent<Demon>().abilities[i].cDtimer.ToString("F1");
             }
         }

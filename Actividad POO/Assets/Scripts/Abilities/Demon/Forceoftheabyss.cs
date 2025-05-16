@@ -3,9 +3,11 @@ using UnityEngine;
 public class Forceoftheabyss : Ability
 {
     private Demon casterRef;
-    public Forceoftheabyss(Sprite icon, float cD, GameObject caster, Abilityscriptable abilityData) : base(icon, "Force of the abyss", "you consume a cursed soul to absorb its power and regenerate your life", cD, 5, caster, abilityData)
+    private Ability ability;
+    public Forceoftheabyss(float cD, GameObject caster, Ability ability) : base(cD, 5, caster)
     {
         casterRef = caster.GetComponent<Demon>();
+        this.ability = ability;
     }
 
     public override void Cast()
@@ -19,9 +21,9 @@ public class Forceoftheabyss : Ability
     {
         if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
-            cDtimer = cD;
+            cDtimer = CD;
             casterRef.lifesystem.CurrentLife -= Cost;
-            caster.GetComponent<Demon>().lifesystem.Heal(abilityData.abilityValue);
+            caster.GetComponent<Demon>().lifesystem.Heal(ability.abilityValue);
 
         }
     }

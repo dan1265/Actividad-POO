@@ -4,7 +4,7 @@ public class Holybomb : Ability
 {
     private Priest casterRef;
     private GameObject projectile;
-    public Holybomb(Sprite icon, float cD, GameObject caster, GameObject projectile, Abilityscriptable abilityData) : base(icon, nameof(Holybomb), "throws a flask of holy water that explodes on impact with the ground, inflicts damage to enemies standing on the water", cD, 15, caster, abilityData)
+    public Holybomb(float cD, GameObject caster, GameObject projectile) : base(cD, 15, caster)
     {
         this.projectile = projectile;
         casterRef = caster.GetComponent<Priest>();
@@ -20,11 +20,11 @@ public class Holybomb : Ability
 
     private void HolybombAbility()
     {
-        if (casterRef.Mana >= Cost)
+        if (casterRef.mana.CurrentMana >= Cost)
         {
-            cDtimer = cD;
+            cDtimer = CD;
             GameObject hB = Object.Instantiate(projectile, caster.transform.position, Camera.main.transform.rotation);
-            casterRef.Mana -= Cost;
+            casterRef.mana.CurrentMana -= Cost;
         }
     }
 }

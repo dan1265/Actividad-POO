@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   parent: {fileID: 8120091198564016062}
-  abilityData: {fileID: 11400000, guid: bd6c081d31d90004e9ac60f4f53d06a2, type: 2}
+  abilityData: {fileID: 11400000, guid: 31b48b26f0e96c9449b7de4d68e81baa, type: 2}
 --- !u!1 &8120091198564016062
 GameObject:
   m_ObjectHideFlags: 0

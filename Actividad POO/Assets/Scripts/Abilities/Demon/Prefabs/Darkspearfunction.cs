@@ -7,7 +7,7 @@ public class Darkspearfunction : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField]private float timer;
 
-    [SerializeField] private Abilityscriptable abilityData;
+    [SerializeField] private Ability abilityData;
 
     void Start()
     {
@@ -31,7 +31,12 @@ public class Darkspearfunction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(abilityData.abilityValue);
+            }
+            //other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) 

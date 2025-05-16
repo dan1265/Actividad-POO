@@ -4,7 +4,7 @@ public class Firebombzonefuction : MonoBehaviour
 {
     [SerializeField] private float timer;
     [SerializeField] private GameObject parent;
-    [SerializeField] private Abilityscriptable abilityData;
+    [SerializeField] private Ability abilityData;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +22,12 @@ public class Firebombzonefuction : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(abilityData.abilityValue);
+            }
+            //other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
         }
     }
 }

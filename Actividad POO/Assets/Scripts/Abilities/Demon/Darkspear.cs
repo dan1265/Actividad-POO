@@ -4,7 +4,7 @@ public class Darkspear : Ability
 {
     private Demon casterRef;
     private GameObject projectile;
-    public Darkspear(Sprite icon, float cD, GameObject caster, GameObject projectile, Abilityscriptable abilityData) : base(icon, nameof(Darkspear), "Summons a dark spear in front of you that hits the first enemy hit.", cD, 10, caster, abilityData)
+    public Darkspear(float cD, GameObject caster, GameObject projectile) : base(2.5f, 10, caster)
     {
         this.projectile = projectile;
         casterRef = caster.GetComponent<Demon>();
@@ -22,7 +22,7 @@ public class Darkspear : Ability
     {
         if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
-            cDtimer = cD;
+            cDtimer = CD;
             GameObject dS = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
             casterRef.lifesystem.CurrentLife -= Cost;
         }

@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 9089735489425688312}
   - component: {fileID: 7695013905818916035}
   - component: {fileID: -7973560126891068213}
+  - component: {fileID: -5809518161960601460}
   - component: {fileID: -4194593774120127867}
   - component: {fileID: -4380854089620643877}
   - component: {fileID: -7164555632720376000}
@@ -196,16 +197,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbef0e637b537194782a4275c3690e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
-  mana: 100
+  lifesystem:
+    currentLife: 0
+  abilitySystem: {fileID: 0}
+  mana:
+    currentMana: 0
   regenerationTimer: 0
   regenerationSpeed: 5
-  abilitiesData:
-  - {fileID: 11400000, guid: 0a9d4774aa41d9644a86deb578077346, type: 2}
-  - {fileID: 11400000, guid: 1d69bcce1e7c8864c940e4f960564ade, type: 2}
-  - {fileID: 11400000, guid: bafb431b061909f4f9e578473ef5791b, type: 2}
   holylight: {fileID: 2805082445174412986, guid: 9380732773f24f648ab3e4c90429da66, type: 3}
   holybomb: {fileID: 4677810072557370413, guid: f51305eb5dc29b044b5e3e71b320d045, type: 3}
+  abilitiesData:
+  - {fileID: 11400000, guid: 9da2bcbd19b82c64fa5e78b0e8624bdf, type: 2}
+  - {fileID: 11400000, guid: 5272a00ead69d8f47970624adfe5ee4d, type: 2}
+  - {fileID: 11400000, guid: 8a3be9c0d7bf7f14b91b4d29c5cc65be, type: 2}
 --- !u!114 &-7973560126891068213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   mouseSensitivity: 15
+--- !u!114 &-5809518161960601460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709014068481734707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4e3f4eb6723a46bf6f30c4499b46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: 9da2bcbd19b82c64fa5e78b0e8624bdf, type: 2}
+  - {fileID: 11400000, guid: 5272a00ead69d8f47970624adfe5ee4d, type: 2}
+  - {fileID: 11400000, guid: 8a3be9c0d7bf7f14b91b4d29c5cc65be, type: 2}
 --- !u!114 &-4194593774120127867
 MonoBehaviour:
   m_ObjectHideFlags: 0

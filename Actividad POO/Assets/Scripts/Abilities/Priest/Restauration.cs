@@ -3,9 +3,11 @@ using UnityEngine;
 public class Restauration : Ability
 {
     private Priest casterRef;
-    public Restauration(Sprite icon, float cD, GameObject caster, Abilityscriptable abilityData) : base(icon, nameof(Restauration), "The gods illuminate you with their sacred light regenerating life.", cD, 30, caster, abilityData)
+    private Ability ability;
+    public Restauration(float cD, GameObject caster, Ability ability) : base(cD, 30, caster)
     {
         casterRef = caster.GetComponent<Priest>();
+        this.ability = ability;
     }
 
     public override void Cast()
@@ -17,11 +19,11 @@ public class Restauration : Ability
     }
     public void RestaurationAbility()
     {
-        if (casterRef.Mana >= Cost)
+        if (casterRef.mana.CurrentMana >= Cost)
         {
-            cDtimer = cD;
-            caster.GetComponent<Priest>().lifesystem.Heal(abilityData.abilityValue);
-            casterRef.Mana -= Cost;
+            cDtimer = CD;
+            caster.GetComponent<Priest>().lifesystem.Heal(ability.abilityValue);
+            casterRef.mana.CurrentMana -= Cost;
         }
     }
 }

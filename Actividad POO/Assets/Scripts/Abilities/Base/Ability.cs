@@ -1,32 +1,30 @@
 using UnityEngine;
 
-[System.Serializable]
-public abstract class Ability
+[CreateAssetMenu(fileName = "New Ability", menuName = "Ability", order = 1)]
+public class Ability : ScriptableObject
 {
-    private Sprite icon;
+    public Sprite icon;
     public string abilityName;
-    private string abilityDescription;
+    public string abilityDescription;
     private float cost;
-    public float cD;
+    private float cD;
     protected GameObject caster;
-    protected Abilityscriptable abilityData;
-    
-
+    public float abilityValue;
     public float cDtimer;
     public bool canCast => cDtimer <= 0f;
 
     public float Cost { get => cost; set => cost = value; }
+    public float CD { get => cD; set => cD = value; }
 
-    public Ability(Sprite icon, string abilityName, string abilityDescription, float cD, float cost, GameObject caster, Abilityscriptable abilityData)
+    public Ability(float cD, float cost, GameObject caster)
     {
-        this.icon = icon;
-        this.abilityName = abilityName;
-        this.abilityDescription = abilityDescription;
-        this.cD = cD;
+        this.CD = cD;
         Cost = cost;
         this.caster = caster;
-        this.abilityData = abilityData;
     }
 
-    public abstract void Cast();
+    public virtual void Cast()
+    {
+
+    }
 }
