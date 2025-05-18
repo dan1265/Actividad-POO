@@ -27,7 +27,6 @@ public class Holybombzonefuction : MonoBehaviour
             {
                 damageable.TakeDamage(abilityData.abilityValue);
             }
-            //other.GetComponent<Enemy>().lifesystem.TakeDamage(abilityData.abilityValue);
         }
     }
 }

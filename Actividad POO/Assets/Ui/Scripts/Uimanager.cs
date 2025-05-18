@@ -10,6 +10,7 @@ public class Uimanager : MonoBehaviour
     [SerializeField] private Slider Life;
     [SerializeField] private Slider Mana;
 
+    [SerializeField] private List<Image> icons;
     [SerializeField] private List<TextMeshProUGUI> names;
     [SerializeField] private List<TextMeshProUGUI> cds; 
     private void Awake()
@@ -47,6 +48,7 @@ public class Uimanager : MonoBehaviour
 
             for (int i = 0; i < cds.Count; i++)
             {
+                icons[i].sprite = player.GetComponent<Priest>().abilitiesData[i].icon;
                 names[i].text = player.GetComponent<Priest>().abilitiesData[i].abilityName;
                 cds[i].text = player.GetComponent<Priest>().abilities[i].cDtimer.ToString("F1");
             }
@@ -58,6 +60,7 @@ public class Uimanager : MonoBehaviour
 
             for (int i = 0; i < cds.Count; i++)
             {
+                icons[i].sprite = player.GetComponent<Demon>().abilitiesData[i].icon;
                 names[i].text = player.GetComponent<Demon>().abilitiesData[i].abilityName;
                 cds[i].text = player.GetComponent<Demon>().abilities[i].cDtimer.ToString("F1");
             }

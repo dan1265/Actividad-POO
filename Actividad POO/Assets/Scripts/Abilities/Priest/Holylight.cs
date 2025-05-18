@@ -27,7 +27,7 @@ public class Holylight : Ability
         {
             cDtimer = CD;
             GameObject hL = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
-            casterRef.mana.CurrentMana -= Cost;
+            casterRef.mana.UseMana(Cost);
         }
 
     }

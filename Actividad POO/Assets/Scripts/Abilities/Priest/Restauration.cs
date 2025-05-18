@@ -22,8 +22,8 @@ public class Restauration : Ability
         if (casterRef.mana.CurrentMana >= Cost)
         {
             cDtimer = CD;
-            caster.GetComponent<Priest>().lifesystem.Heal(ability.abilityValue);
-            casterRef.mana.CurrentMana -= Cost;
+            casterRef.lifesystem.Heal(ability.abilityValue);
+            casterRef.mana.UseMana(Cost);
         }
     }
 }

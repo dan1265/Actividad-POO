@@ -24,7 +24,7 @@ public class Firebomb : Ability
         {
             cDtimer = CD;
             GameObject fB = Object.Instantiate(projectile, caster.transform.position, Camera.main.transform.rotation);
-            casterRef.lifesystem.CurrentLife -= Cost;
+            casterRef.lifesystem.TakeDamage(Cost);
         }
     }
 }

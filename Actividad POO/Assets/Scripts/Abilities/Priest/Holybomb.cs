@@ -24,7 +24,7 @@ public class Holybomb : Ability
         {
             cDtimer = CD;
             GameObject hB = Object.Instantiate(projectile, caster.transform.position, Camera.main.transform.rotation);
-            casterRef.mana.CurrentMana -= Cost;
+            casterRef.mana.UseMana(Cost);
         }
     }
 }

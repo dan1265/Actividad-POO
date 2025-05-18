@@ -24,7 +24,7 @@ public class Darkspear : Ability
         {
             cDtimer = CD;
             GameObject dS = Object.Instantiate(projectile, Camera.main.transform.position, Camera.main.transform.rotation);
-            casterRef.lifesystem.CurrentLife -= Cost;
+            casterRef.lifesystem.TakeDamage(Cost);
         }
 
     }

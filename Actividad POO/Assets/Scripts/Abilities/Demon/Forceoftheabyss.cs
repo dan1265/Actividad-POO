@@ -22,9 +22,8 @@ public class Forceoftheabyss : Ability
         if (casterRef.lifesystem.CurrentLife >= Cost + 1)
         {
             cDtimer = CD;
-            casterRef.lifesystem.CurrentLife -= Cost;
-            caster.GetComponent<Demon>().lifesystem.Heal(ability.abilityValue);
-
+            casterRef.lifesystem.TakeDamage(Cost);
+            casterRef.lifesystem.Heal(ability.abilityValue);
         }
     }
 }

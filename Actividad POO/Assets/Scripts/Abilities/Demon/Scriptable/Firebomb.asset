@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06917b5943bd0343b0adf5805b604ad, type: 3}
   m_Name: Firebomb
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5085c57f907d8bd4293ca20b1c644d71, type: 3}
   abilityName: Fire Bomb
   abilityDescription: Throws a fire bomb that explodes and incinerates the ground
     causing damage to all enemies that stand on it.

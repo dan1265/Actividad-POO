@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float timer;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private Transform shootPoint;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        timer = fireRate;
+    }
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+
+        if(timer <= 0)
+        {
+            GameObject insBullet = Instantiate(bullet, shootPoint.position, Quaternion.identity);
+            Rigidbody rB = insBullet.GetComponent<Rigidbody>();
+            rB.AddForce(shootPoint.forward * bulletSpeed);
+            timer = fireRate;
+        }
     }
 }

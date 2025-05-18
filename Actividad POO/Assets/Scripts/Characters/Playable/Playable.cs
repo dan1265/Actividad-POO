@@ -52,7 +52,7 @@ public class Playable : CharactersBase, IDamageable
 
     protected void Dead()
     {
-        if(lifesystem.CurrentLife <= 0)
+        if(lifesystem.CurrentLife <= 0||transform.position.y < -2)
         {
             transform.position = Vector3.zero;
             lifesystem.CurrentLife = 100;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06917b5943bd0343b0adf5805b604ad, type: 3}
   m_Name: Holylight
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2af9f6a37566a894aa31e8a374b618a1, type: 3}
   abilityName: Holylight
   abilityDescription: Summons a beam of holy light that deals damage to the first
     enemy it hits.
